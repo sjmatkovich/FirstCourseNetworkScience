@@ -18,12 +18,12 @@ https://networkx.github.io/documentation/networkx-2.2/tutorial.html
 
 Recall that `import` statements go at the top of your code, telling Python to load an external module. In this case we want to load NetworkX, but give it a short alias `nx` since we'll have to type it repeatedly, hence the `as` statement.
 
-Lines starting with the `%` character are not Python code, they are "magic" directives for Jupyter notebook. The `%matplotlib inline` magic tells Jupyter Notebook to draw graphics inline i.e. in the notebook. This magic should be used right after the import statement.
+Lines starting with the `%` character are not Python code, they are "magic" directives for Jupyter notebook. The `%matplotlib inline` magic tells Jupyter Notebook to draw graphics inline i.e. in the notebook. This magic should be used right after the import statement. For .qmd files, this magic is not necessary, so it is commented out.
 
 ```{python}
 #| label: load-packages
 import networkx as nx
-%matplotlib inline
+# %matplotlib inline
 ```
 
 Let's check the installed version of NetworkX. Version 2 is incompatible with v1, so we want to make sure we're not using an out of date package.
@@ -318,14 +318,14 @@ In the `datasets` directory, there is a file called `friends.adjlist`. It's a pl
 
 ```{python}
 #| label: print-adjlist
-print(open('../datasets/friends.adjlist').read())
+print(open("./datasets/friends.adjlist").read())
 ```
 
 NetworkX provides a way to read a graph from an adjacency list: `nx.read_adjlist()`. We will name this graph SG, for social graph.
 
 ```{python}
 #| label: read-adjlist
-SG = nx.read_adjlist('../datasets/friends.adjlist')
+SG = nx.read_adjlist("./datasets/friends.adjlist")
 ```
 
 We know how to draw this graph:
@@ -354,8 +354,8 @@ def max_degree(G):
 
 ```{python}
 #| label: exercise-2-check
-SG = nx.read_adjlist('../datasets/friends.adjlist')
-assert max_degree(SG) == ('Claire', 4)
+SG = nx.read_adjlist("./datasets/friends.adjlist")
+assert max_degree(SG) == ("Claire", 4)
 ```
 
 # EXERCISE 3
@@ -374,10 +374,10 @@ def mutual_friends(G, node_1, node_2):
 
 ```{python}
 #| label: exercise-3-check
-SG = nx.read_adjlist('../datasets/friends.adjlist')
-assert mutual_friends(SG, 'Alice', 'Claire') == ['Frank']
-assert mutual_friends(SG, 'George', 'Bob') == []
-assert sorted(mutual_friends(SG, 'Claire', 'George')) == ['Dennis', 'Frank']
+SG = nx.read_adjlist("./datasets/friends.adjlist")
+assert mutual_friends(SG, "Alice", "Claire") == ["Frank"]
+assert mutual_friends(SG, "George", "Bob") == []
+assert sorted(mutual_friends(SG, "Claire", "George")) == ["Dennis", "Frank"]
 ```
 
 # Directed graphs
