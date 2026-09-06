@@ -11,3 +11,6 @@ dependencies = [
     "numpy>=2.4.4",
     "pandas>=3.0.2",
 ]
+[[tool.uv.index]]
+url = "https://packagemanager.posit.co/pypi/2026-07-05/simple"
+default = true
