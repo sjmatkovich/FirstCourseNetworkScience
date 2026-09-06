@@ -1,0 +1,12 @@
+{
+  "permission": {
+    "edit": {
+      "*.qmd": "allow"
+    },
+    "bash": {
+      "cd *": "allow",
+      "quarto render *": "allow",
+      "tail *": "allow"
+    }
+  }
+}

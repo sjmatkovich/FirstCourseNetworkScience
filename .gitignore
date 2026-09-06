@@ -39,3 +39,7 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Quarto
+/.quarto/
+**/*.quarto_ipynb
